@@ -1,0 +1,18 @@
+CREATE TABLE concierto (
+  id SERIAL NOT NULL PRIMARY KEY,
+  identificador_semantico TEXT NOT NULL,
+  nombre TEXT NOT NULL,
+  fecha TEXT NOT NULL,
+  lugar TEXT NOT NULL,
+  enlace TEXT NOT NULL
+);
+
+CREATE TABLE artista_concierto (
+  id SERIAL NOT NULL PRIMARY KEY,
+  concierto_id INT NOT NULL,
+  nombre TEXT NOT NULL,
+  seguidores TEXT NOT NULL,
+  popularidad TEXT NOT NULL,
+  enlace TEXT NOT NULL,
+  FOREIGN KEY (concierto_id) REFERENCES concierto(id)
+);
